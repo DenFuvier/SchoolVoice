@@ -15,6 +15,9 @@ namespace School.Windows
         public IntermediateFormDIR()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -23,6 +26,31 @@ namespace School.Windows
             this.Close();
             var Entrance = new Entrance();
             Entrance.ShowDialog();
+        }
+
+   
+        private void OpenGemerericForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            var GeneratingReports = new GeneratingReports();
+            GeneratingReports.ShowDialog();
+        }
+
+        private void OpenUsersForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            var AddUsersOnBase = new AddUsersOnBase();
+            AddUsersOnBase.ShowDialog();
+        }
+
+        private void ADDEXX_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            var AddEMPloyess = new AddEMPloyess();
+            AddEMPloyess.ShowDialog();
         }
     }
 }

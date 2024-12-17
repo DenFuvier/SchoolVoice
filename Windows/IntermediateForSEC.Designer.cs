@@ -31,11 +31,12 @@
             this.Exit = new System.Windows.Forms.Button();
             this.EnterData = new System.Windows.Forms.Button();
             this.ViewData = new System.Windows.Forms.Button();
+            this.OpneForm = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(12, 111);
+            this.Exit.Location = new System.Drawing.Point(12, 107);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(75, 23);
             this.Exit.TabIndex = 0;
@@ -45,9 +46,9 @@
             // 
             // EnterData
             // 
-            this.EnterData.Location = new System.Drawing.Point(12, 12);
+            this.EnterData.Location = new System.Drawing.Point(12, 7);
             this.EnterData.Name = "EnterData";
-            this.EnterData.Size = new System.Drawing.Size(111, 23);
+            this.EnterData.Size = new System.Drawing.Size(188, 23);
             this.EnterData.TabIndex = 1;
             this.EnterData.Text = "Внести данные";
             this.EnterData.UseVisualStyleBackColor = true;
@@ -55,25 +56,37 @@
             // 
             // ViewData
             // 
-            this.ViewData.Location = new System.Drawing.Point(12, 41);
+            this.ViewData.Location = new System.Drawing.Point(12, 36);
             this.ViewData.Name = "ViewData";
-            this.ViewData.Size = new System.Drawing.Size(111, 23);
+            this.ViewData.Size = new System.Drawing.Size(188, 23);
             this.ViewData.TabIndex = 2;
             this.ViewData.Text = "Просмотр списка учеников ";
             this.ViewData.UseVisualStyleBackColor = true;
             this.ViewData.Click += new System.EventHandler(this.ViewData_Click);
             // 
+            // OpneForm
+            // 
+            this.OpneForm.Location = new System.Drawing.Point(13, 66);
+            this.OpneForm.Name = "OpneForm";
+            this.OpneForm.Size = new System.Drawing.Size(187, 23);
+            this.OpneForm.TabIndex = 3;
+            this.OpneForm.Text = "Просмотр списка сотрудников";
+            this.OpneForm.UseVisualStyleBackColor = true;
+            this.OpneForm.Click += new System.EventHandler(this.OpneForm_Click);
+            // 
             // IntermediateForSEC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(146, 142);
+            this.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.ClientSize = new System.Drawing.Size(216, 142);
+            this.Controls.Add(this.OpneForm);
             this.Controls.Add(this.ViewData);
             this.Controls.Add(this.EnterData);
             this.Controls.Add(this.Exit);
             this.Name = "IntermediateForSEC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "IntermediateForSEC";
+            this.Text = "Секретарь";
             this.ResumeLayout(false);
 
         }
@@ -83,5 +96,6 @@
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button EnterData;
         private System.Windows.Forms.Button ViewData;
+        private System.Windows.Forms.Button OpneForm;
     }
 }

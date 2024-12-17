@@ -43,5 +43,13 @@ namespace School.Windows
             var ViewStudent = new ViewStudent();
             ViewStudent.ShowDialog();
         }
+
+        private void OpneForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.Close();
+            var EmployeesForms = new EmployeesForms();
+            EmployeesForms.ShowDialog();
+        }
     }
 }

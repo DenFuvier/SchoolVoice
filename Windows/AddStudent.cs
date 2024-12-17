@@ -17,6 +17,9 @@ namespace School.Windows
         public AddStudent()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void Save_Click(object sender, EventArgs e)

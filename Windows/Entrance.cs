@@ -2,6 +2,7 @@
 using School.Classes;
 using School.Windows;
 using System;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 
 namespace School
@@ -37,20 +38,18 @@ namespace School
             {
                 var con = new MySqlConnection(cs);
                 con.Open();
-                var stm = String.Format("SELECT Login, Password, Role FROM users WHERE Login = \"{0}\" AND password = \"{1}\"",
+                var stm = String.Format("SELECT UserId , Login, Password, Role FROM users WHERE Login = \"{0}\" AND password = \"{1}\"",
                     Login.Text,
                     Password.Text);
                  var cmd = new MySqlCommand(stm, con);
                  MySqlDataReader Reader = cmd.ExecuteReader();
                  if (Reader.Read())
-                 {
-                    string Login = Reader.GetString(0); 
-                    string Password = Reader.GetString(1);  
-                    string Role = Reader.GetString(2);  
-                     MessageBox.Show("Успешно вошли " + " " + Login + " " + Role);
+                 {  int UserId = Reader.GetInt32(0);
+                    string Login = Reader.GetString(1); 
+                    string Password = Reader.GetString(2);  
+                    string Role = Reader.GetString(3);   
 
-
-                    Users user = new Users(Login, Password, Role);
+                    Users user = new Users(UserId, Login, Password, Role);
                     switch (user.Role)
                     {
                         case "Director":

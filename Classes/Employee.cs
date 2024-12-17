@@ -7,55 +7,82 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace School
 {
-    public class employees
+    public class Employee
     {
         /// <summary>
         /// идентификатор сотрудника
         /// </summary>
         public int EmployeeId { get; set; }
+
         /// <summary>
         /// Имя
         /// </summary>
-     public string FirstName { get; set; }
+        public string FirstName { get; set; }
+
         /// <summary>
         /// Фамилия
         /// </summary>
         public string LastName { get; set; }
+
         /// <summary>
         /// Отчество
         /// </summary>
-     public string MiddleName { get; set; } 
+        public string MiddleName { get; set; }
+
         /// <summary>
-        ///  ПАспортные данные
+        /// Паспортные данные
         /// </summary>
-     public string PassportNumber { get; set; }
+        public string PassportNumber { get; set; }
+
         /// <summary>
         /// Номер телефона
         /// </summary>
-     public string PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
+
         /// <summary>
         /// Почта
         /// </summary>
-     public string Email { get; set; }
+        public string Email { get; set; }
+
         /// <summary>
         /// Дата рождения
         /// </summary>
         public DateTime DateOfBirth { get; set; }
+
         /// <summary>
         /// Дата найма
         /// </summary>
         public DateTime HireDate { get; set; }
+
         /// <summary>
         /// Дата увольнения
         /// </summary>
-        public DateTime DismissalDate { get; set; }
+        public DateTime? DismissalDate { get; set; }
+
         /// <summary>
         /// Позиция
         /// </summary>
         public string Position { get; set; }
+
         /// <summary>
         /// Зарплата
         /// </summary>
-     public string Salary { get; set; }
+        public int Salary { get; set; }
+
+        public Employee(int employeeId, string firstName, string lastName, string middleName, string passportNumber, string phoneNumber, string email, DateTime dateOfBirth, DateTime hireDate, DateTime? dismissalDate, string position, int salary)
+        {
+            EmployeeId = employeeId;
+            FirstName = firstName;
+            LastName = lastName;
+            MiddleName = middleName;
+            PassportNumber = passportNumber;
+            PhoneNumber = phoneNumber;
+            Email = email;
+            DateOfBirth = dateOfBirth;
+            HireDate = hireDate;
+            DismissalDate = dismissalDate;
+            Position = position;
+            Salary = salary;
+        }
     }
 }

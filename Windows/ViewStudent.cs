@@ -10,17 +10,22 @@ namespace School.Windows
 {
     public partial class ViewStudent : Form
     {
+        SQLConnector SQL = new SQLConnector();
         List<Student> student_ = new List<Student>();
-
+        private string currentUserRole;
         public ViewStudent()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
+            Delete.Enabled = false;
             ViewStident.ReadOnly = true;
             FirstNameTextBox.Enabled = false;
             LastNameTextBox.Enabled = false;
             MiddleNameTextBox.Enabled = false;
             DateOfBirthTextBox.Enabled = false;
-            ClassIdTextBox.Enabled  = false;
+            ClassIdTextBox.Enabled = false;
             ParentPhoneNumberTextBox.Enabled = false;
             AcademicPerformanceTextBox.Enabled = false;
             Update.Enabled = false;
@@ -50,45 +55,54 @@ namespace School.Windows
                     MessageBox.Show("Ошибка: Индекс строки вне диапазона.");
                 }
             }
-            else
-            {
-                MessageBox.Show("Пожалуйста, выберите строку в таблице.");
-            }
-
 
         }
 
         private void LoadStudentData()
         {
-            SQLConnector SQL = new SQLConnector();
+            student_.Clear();
+
             string cs = SQL.GetConnect();
             try
             {
-                var con = new MySqlConnection(cs);
-                con.Open();
-                var stm = "SELECT * FROM students";
-                var cmd = new MySqlCommand(stm, con);
-                MySqlDataReader Reader = cmd.ExecuteReader();
-                while (Reader.Read())
+                using (var con = new MySqlConnection(cs))
                 {
-                   int StudentId = Reader.GetInt32(0);
-                   string FirstName = Reader.GetString(1);
-                    string LastName = Reader.GetString(2);
-                    string MiddleName = Reader.GetString(3);
-                    DateTime DateOfBirth = Reader.GetDateTime(4);
-                    string ClassId = Reader.GetString(5);
-                    string ParentPhoneNumber = Reader.GetString(6);
-                    string AcademicPerformance = Reader.GetString(7);
+                    con.Open();
+                    var stm = "SELECT * FROM students";
+                    using (var cmd = new MySqlCommand(stm, con))
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            int StudentId = reader.GetInt32(0);
+                            string FirstName = reader.GetString(1);
+                            string LastName = reader.GetString(2);
+                            string MiddleName = reader.GetString(3);
+                            DateTime DateOfBirth = reader.GetDateTime(4);
+                            string ClassId = reader.GetString(5);
+                            string ParentPhoneNumber = reader.GetString(6);
+                            string AcademicPerformance = reader.GetString(7);
 
-                    Student st = new Student(StudentId, FirstName, LastName, MiddleName, DateOfBirth, ClassId, ParentPhoneNumber, AcademicPerformance);
-                    student_.Add(st);
-
+                            Student st = new Student(
+                                StudentId,
+                                FirstName,
+                                LastName,
+                                MiddleName,
+                                DateOfBirth,
+                                ClassId,
+                                ParentPhoneNumber,
+                                AcademicPerformance
+                            );
+                            student_.Add(st);
+                        }
+                    }
                 }
-                con.Close();
-                ViewStident.DataSource = null; 
+
+                ViewStident.DataSource = null;
                 ViewStident.DataSource = student_;
 
                 ViewStident.SelectionChanged += ViewStident_SelectionChanged;
+
                 if (ViewStident.Rows.Count > 0)
                 {
                     ViewStident.Rows[0].Selected = true;
@@ -136,6 +150,8 @@ namespace School.Windows
                         ParentPhoneNumberTextBox.Enabled = true;
                         AcademicPerformanceTextBox.Enabled = true;
                         Update.Enabled = true;
+                        Delete.Enabled = true;
+                        PasswordInputTextBox.Text = "";
                         MessageBox.Show("Доступ разблокирован.");
                     }
                     else
@@ -152,7 +168,10 @@ namespace School.Windows
 
         private void Exit_Click(object sender, EventArgs e)
         {
-          Application.Exit();
+            this.Hide();
+            this.Close();
+            var IntermediateForSEC = new IntermediateForSEC();
+            IntermediateForSEC.Show();
         }
 
         private void Update_Click(object sender, EventArgs e)
@@ -177,7 +196,7 @@ namespace School.Windows
                         return;
                     }
 
-                    SQLConnector SQL = new SQLConnector();
+
                     string cs = SQL.GetConnect();
 
                     try
@@ -235,9 +254,58 @@ namespace School.Windows
                     MessageBox.Show("Выбран неверный индекс.");
                 }
             }
+
+        }
+
+        private void Delete_Click(object sender, EventArgs e)
+        {
+            if (ViewStident.SelectedRows.Count > 0)
+            {
+                int rowIndex = ViewStident.SelectedRows[0].Index;
+
+                if (rowIndex >= 0 && rowIndex < student_.Count)
+                {
+                    Student selectedStudent = student_[rowIndex];
+
+                    DialogResult dialogResult = MessageBox.Show(
+                        "Вы уверены, что хотите удалить этого студента?",
+                        "Подтвердите удаление",
+                        MessageBoxButtons.YesNo);
+
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        string cs = SQL.GetConnect();
+                        try
+                        {
+                            using (var con = new MySqlConnection(cs))
+                            {
+                                con.Open();
+
+                                string stm = $"DELETE FROM students WHERE StudentId = {selectedStudent.StudentId}";
+
+                                using (var cmd = new MySqlCommand(stm, con))
+                                {
+                                    cmd.ExecuteNonQuery();
+                                }
+                            }
+
+                            MessageBox.Show("Студент успешно удален.");
+                            LoadStudentData();
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Ошибка при удалении: {ex.Message}");
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ошибка: неверный индекс строки.");
+                }
+            }
             else
             {
-                MessageBox.Show("Пожалуйста, выберите строку для обновления.");
+                MessageBox.Show("Пожалуйста, выберите студента для удаления.");
             }
         }
     }

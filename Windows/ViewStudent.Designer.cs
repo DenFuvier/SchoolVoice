@@ -41,11 +41,13 @@
             this.PasswordInputTextBox = new System.Windows.Forms.TextBox();
             this.Exit = new System.Windows.Forms.Button();
             this.Update = new System.Windows.Forms.Button();
+            this.Delete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ViewStident)).BeginInit();
             this.SuspendLayout();
             // 
             // ViewStident
             // 
+            this.ViewStident.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ViewStident.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ViewStident.Location = new System.Drawing.Point(12, 49);
             this.ViewStident.Name = "ViewStident";
@@ -134,7 +136,7 @@
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(75, 23);
             this.Exit.TabIndex = 11;
-            this.Exit.Text = "Выход";
+            this.Exit.Text = "Вернуться";
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
@@ -148,11 +150,23 @@
             this.Update.UseVisualStyleBackColor = true;
             this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
+            // Delete
+            // 
+            this.Delete.Location = new System.Drawing.Point(558, 481);
+            this.Delete.Name = "Delete";
+            this.Delete.Size = new System.Drawing.Size(75, 23);
+            this.Delete.TabIndex = 13;
+            this.Delete.Text = "Удаление";
+            this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
+            // 
             // ViewStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(933, 516);
+            this.Controls.Add(this.Delete);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.PasswordInputTextBox);
@@ -167,6 +181,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ViewStident);
             this.Name = "ViewStudent";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ViewStudent";
             this.Load += new System.EventHandler(this.ViewStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ViewStident)).EndInit();
@@ -190,5 +205,6 @@
         private System.Windows.Forms.TextBox PasswordInputTextBox;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button Update;
+        private System.Windows.Forms.Button Delete;
     }
 }

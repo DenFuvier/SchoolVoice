@@ -98,16 +98,33 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\classes.cs" />
     <Compile Include="Classes\reports.cs" />
     <Compile Include="Classes\Student.cs" />
     <Compile Include="Classes\Users.cs" />
-    <Compile Include="Classes\employees.cs" />
+    <Compile Include="Classes\Employee.cs" />
+    <Compile Include="Windows\AddEMPloyess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AddEMPloyess.Designer.cs">
+      <DependentUpon>AddEMPloyess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddStudent.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Windows\AddStudent.Designer.cs">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddUsersOnBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AddUsersOnBase.Designer.cs">
+      <DependentUpon>AddUsersOnBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EmployeesForms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\EmployeesForms.Designer.cs">
+      <DependentUpon>EmployeesForms.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\Entrance.cs">
       <SubType>Form</SubType>
@@ -118,6 +135,12 @@
     <Compile Include="Others\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLconnector\SQLConnector.cs" />
+    <Compile Include="Windows\GeneratingReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\GeneratingReports.Designer.cs">
+      <DependentUpon>GeneratingReports.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\IntermediateFormDIR.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,8 +159,17 @@
     <Compile Include="Windows\ViewStudent.Designer.cs">
       <DependentUpon>ViewStudent.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\AddEMPloyess.resx">
+      <DependentUpon>AddEMPloyess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\AddStudent.resx">
       <DependentUpon>AddStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\AddUsersOnBase.resx">
+      <DependentUpon>AddUsersOnBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\EmployeesForms.resx">
+      <DependentUpon>EmployeesForms.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Entrance.resx">
       <DependentUpon>Entrance.cs</DependentUpon>
@@ -151,6 +183,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Windows\GeneratingReports.resx">
+      <DependentUpon>GeneratingReports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\IntermediateFormDIR.resx">
       <DependentUpon>IntermediateFormDIR.cs</DependentUpon>
     </EmbeddedResource>
