@@ -17,6 +17,9 @@ namespace School.Windows
         public GeneretingReportsFormKolVoANDdannie()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void GeneretingReportsFormKolVoStudent_Load(object sender, EventArgs e)

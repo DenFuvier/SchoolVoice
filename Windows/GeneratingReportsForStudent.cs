@@ -19,6 +19,9 @@ namespace School.Windows
         {
 
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void Exit_Click(object sender, EventArgs e)

@@ -17,6 +17,9 @@ namespace School.Windows
         public GeneratingReportsForEMP()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void LoadEmployeeData()

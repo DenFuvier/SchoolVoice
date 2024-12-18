@@ -15,6 +15,9 @@ namespace School.Windows
         public TheChoiceIsYours()
         {
             InitializeComponent();
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.FormBorderStyle = FormBorderStyle.FixedDialog;
         }
 
         private void DeleteEmployer_Click(object sender, EventArgs e)

@@ -1,9 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
-using Mysqlx.Crud;
 using School.Classes;
 using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Windows.Forms;
 
 namespace School.Windows

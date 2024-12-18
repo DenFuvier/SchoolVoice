@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using School.Classes;
 using School.Windows;
 using System;
 using System.Reflection.Emit;
