@@ -56,7 +56,7 @@
             // 
             // OpenGemerericForm
             // 
-            this.OpenGemerericForm.Location = new System.Drawing.Point(19, 40);
+            this.OpenGemerericForm.Location = new System.Drawing.Point(19, 69);
             this.OpenGemerericForm.Name = "OpenGemerericForm";
             this.OpenGemerericForm.Size = new System.Drawing.Size(153, 23);
             this.OpenGemerericForm.TabIndex = 2;
@@ -66,7 +66,7 @@
             // 
             // ADDEXX
             // 
-            this.ADDEXX.Location = new System.Drawing.Point(19, 69);
+            this.ADDEXX.Location = new System.Drawing.Point(19, 40);
             this.ADDEXX.Name = "ADDEXX";
             this.ADDEXX.Size = new System.Drawing.Size(153, 23);
             this.ADDEXX.TabIndex = 4;

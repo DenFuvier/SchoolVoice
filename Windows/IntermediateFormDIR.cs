@@ -33,8 +33,8 @@ namespace School.Windows
         {
             this.Hide();
             this.Close();
-            var GeneratingReports = new GeneratingReports();
-            GeneratingReports.ShowDialog();
+            var TheChoiceIsYours = new TheChoiceIsYours();
+            TheChoiceIsYours.ShowDialog();
         }
 
         private void OpenUsersForm_Click(object sender, EventArgs e)

@@ -52,6 +52,7 @@
             // 
             // EmployeeVIew
             // 
+            this.EmployeeVIew.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.EmployeeVIew.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EmployeeVIew.Location = new System.Drawing.Point(12, 42);
             this.EmployeeVIew.Name = "EmployeeVIew";
@@ -203,6 +204,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Unlock1);
             this.Controls.Add(this.Unlock);
@@ -224,7 +226,8 @@
             this.Controls.Add(this.employeeIdbox);
             this.Controls.Add(this.EmployeeVIew);
             this.Name = "EmployeesForms";
-            this.Text = "employees";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Редактирование сотрудников";
             this.Load += new System.EventHandler(this.EmployeesForms_Load);
             ((System.ComponentModel.ISupportInitialize)(this.EmployeeVIew)).EndInit();
             this.ResumeLayout(false);

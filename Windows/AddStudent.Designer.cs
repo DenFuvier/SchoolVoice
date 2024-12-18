@@ -222,7 +222,7 @@
             this.Controls.Add(this.Save);
             this.Name = "AddStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddStudent";
+            this.Text = "Добавление новых студентов";
             this.ResumeLayout(false);
             this.PerformLayout();
 

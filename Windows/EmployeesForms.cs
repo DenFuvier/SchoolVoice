@@ -49,7 +49,7 @@ namespace School.Windows
             {
                 string cs = SQL.GetConnect();
                  employees_.Clear();
-            try
+                 try
                 {
                     var con = new MySqlConnection(cs);
                     con.Open();

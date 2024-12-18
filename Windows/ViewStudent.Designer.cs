@@ -182,7 +182,7 @@
             this.Controls.Add(this.ViewStident);
             this.Name = "ViewStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewStudent";
+            this.Text = "Просмотр студентов :";
             this.Load += new System.EventHandler(this.ViewStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ViewStident)).EndInit();
             this.ResumeLayout(false);

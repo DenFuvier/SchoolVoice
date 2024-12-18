@@ -125,7 +125,7 @@
             this.Controls.Add(this.LoginBox);
             this.Name = "AddUsersOnBase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AddUsersOnBase";
+            this.Text = "Добавление новых пользователей";
             this.Load += new System.EventHandler(this.AddUsersOnBase_Load);
             ((System.ComponentModel.ISupportInitialize)(this.UsersView)).EndInit();
             this.ResumeLayout(false);

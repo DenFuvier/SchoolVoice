@@ -284,7 +284,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddEMPloyess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " ";
+            this.Text = "Добавление нового сотрудника";
             this.ResumeLayout(false);
             this.PerformLayout();
 
